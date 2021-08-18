@@ -1,14 +1,13 @@
 package com.example.nytbooks.presentation.books
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytbooks.R
 import com.example.nytbooks.data.model.Book
 import kotlinx.android.synthetic.main.activity_books.*
-import java.util.ArrayList
+import java.util.*
 
 class BooksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
