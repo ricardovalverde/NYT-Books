@@ -2,10 +2,11 @@ package com.example.nytbooks.presentation.books
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytbooks.R
-import com.example.nytbooks.data.model.Book
+import com.example.nytbooks.presentation.details.BookDetailsActivity
 import kotlinx.android.synthetic.main.activity_books.*
 import java.util.*
 
@@ -18,20 +19,27 @@ class BooksActivity : AppCompatActivity() {
         main_toolbar.setTitleTextColor(resources.getColor(R.color.white))
         setSupportActionBar(main_toolbar)
 
-        with(main_recycler_view) {
-            layoutManager = LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
-            setHasFixedSize(true)
-            adapter = BooksAdapter(getBooks())
-        }
-    }
 
-    private fun getBooks(): List<Book> {
+        val viewModel: BooksViewModel = ViewModelProviders.of(this).get(BooksViewModel::class.java)
 
-        val books = ArrayList<Book>()
-        for (n in 1..30) {
-            books.add((Book("Titulo $n", "Autor $n")))
-        }
-        return books
+        viewModel.booksLiveData.observe(this, androidx.lifecycle.Observer {
+            it?.let { books ->
+                with(main_recycler_view) {
+                    layoutManager =
+                        LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
+                    setHasFixedSize(true)
+                    adapter = BooksAdapter(books) { book ->
+                        val intent = BookDetailsActivity.init(
+                            this@BooksActivity,
+                            book.title,
+                            book.description
+                        )
+                        startActivity(intent)
+                    }
+                }
+            }
+        })
+        viewModel.getBooks()
     }
 }
 
