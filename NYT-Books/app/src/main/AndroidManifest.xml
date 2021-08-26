@@ -11,9 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NYTBooks">
-        <activity
-            android:name=".presentation.details.BookDetailsActivity"
-            android:exported="true" />
+
         <activity
             android:name=".presentation.books.BooksActivity"
             android:exported="true">
@@ -23,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity
+            android:name=".presentation.details.BookDetailsActivity"
+            android:parentActivityName=".presentation.books.BooksActivity" />
+
+    </application>
 </manifest>

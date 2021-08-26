@@ -9,8 +9,8 @@ import com.example.nytbooks.data.model.Book
 import kotlinx.android.synthetic.main.item_book.view.*
 
 class BooksAdapter(
-    val list_books: List<Book>,
-    val onItemClickListener: (book: Book) -> Unit
+    private val list_books: List<Book>,
+    private val onItemClickListener: (book: Book) -> Unit
 ) : RecyclerView.Adapter<BooksViewHolder>() {
 
 
@@ -30,7 +30,6 @@ class BooksViewHolder(
     itemView: View,
     private val onItemClickListener: ((book: Book) -> Unit)
 ) : RecyclerView.ViewHolder(itemView) {
-
 
     private val title = itemView.title_book
     private val author = itemView.author_book

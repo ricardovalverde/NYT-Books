@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">NYT Books</string>
-    <string name="books_title">Books</string>
+    <string name="books">Books</string>
+    <string name="book_details">Book Details</string>
     <string name="book_details_title_label">Title</string>
     <string name="book_details_description_label">Description</string>
+    <string name="error_401">Erro 401 ! Acesso não autorizado</string>
+    <string name="error_400_generic">Erro !</string>
+    <string name="error_500_generic">Erro Catastrófico !</string>
 
 </resources>

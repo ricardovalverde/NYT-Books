@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_book_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_books.xml" value="0.20677083333333332" />
+        <entry key="app/src/main/res/layout/include_toolbar.xml" value="0.20677083333333332" />
         <entry key="app/src/main/res/layout/item_book.xml" value="0.20677083333333332" />
       </map>
     </option>
